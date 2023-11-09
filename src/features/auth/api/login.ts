@@ -1,5 +1,6 @@
 import { axios } from '@/lib/axios'
-import { useMutation, type QueryClient } from '@tanstack/react-query'
+import { queryClient } from '@/lib/react-query'
+import { useMutation } from '@tanstack/react-query'
 
 import storage from '@/utils/storage'
 
@@ -33,8 +34,7 @@ async function loginFn(data: LoginCredentialsDTO) {
 
   return handleUserResponse(loginResponseSchema.parse(res.data))
 }
-
-export const useLoginUser = (queryClient: QueryClient) => {
+export const useLoginUser = () => {
   return useMutation({
     mutationFn: (data: LoginCredentialsDTO) => loginFn(data),
     onSuccess: (data) => {

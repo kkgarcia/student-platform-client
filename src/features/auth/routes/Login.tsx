@@ -1,10 +1,7 @@
 import { useLoginUser } from '../api/login'
-import { useQueryClient } from '@tanstack/react-query'
 
 export const Login = () => {
-  const queryClient = useQueryClient()
-
-  const { mutate, data } = useLoginUser(queryClient)
+  const { mutate, data } = useLoginUser()
 
   const form = {
     firstName: 'test',

@@ -1,5 +1,6 @@
 import { axios } from '@/lib/axios'
-import { useMutation, type QueryClient } from '@tanstack/react-query'
+import { queryClient } from '@/lib/react-query'
+import { useMutation } from '@tanstack/react-query'
 
 import storage from '@/utils/storage'
 
@@ -34,7 +35,7 @@ async function RegisterFn(data: RegisterUserDTO) {
   return handleUserResponse(registerResponseSchema.parse(res.data))
 }
 
-export const useRegisterUser = (queryClient: QueryClient) => {
+export const useRegisterUser = () => {
   return useMutation({
     mutationFn: (data: RegisterUserDTO) => RegisterFn(data),
     onSuccess: (data) => {

@@ -13,6 +13,8 @@ const userResponseSchema = z.object({
   role: z.enum(['STUDENT', 'ADMIN']),
 })
 
+export type User = z.infer<typeof userResponseSchema>
+
 const getUser = async () => {
   const token = storage.getToken() as string
   if (!token) return null
