@@ -5,7 +5,7 @@ import { useAuth } from '@/lib/auth'
 import { Login } from '@/features/auth'
 import { Register } from '@/features/auth'
 
-const PulicRoutes = () => {
+const PublicRoutes = () => {
   const { user } = useAuth()
 
   return user ? <Navigate to={'/'} /> : <Outlet />
@@ -13,7 +13,7 @@ const PulicRoutes = () => {
 
 export const publicRoutes = [
   {
-    element: <PulicRoutes />,
+    element: <PublicRoutes />,
     children: [
       {
         path: '/log-in',

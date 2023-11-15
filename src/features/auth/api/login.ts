@@ -36,9 +36,11 @@ async function loginFn(data: LoginCredentialsDTO) {
 }
 export const useLoginUser = () => {
   return useMutation({
-    mutationFn: (data: LoginCredentialsDTO) => loginFn(data),
-    onSuccess: (data) => {
-      queryClient.setQueryData(['user'], () => data)
+    mutationFn: loginFn,
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ['user'],
+      })
     },
   })
 }

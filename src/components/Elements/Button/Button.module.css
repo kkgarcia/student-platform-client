@@ -1,0 +1,46 @@
+.primary {
+    background-color: var(--blue-6);
+    color: var(--blue-12);
+    border-color: var(--blue-7);
+}
+
+.danger {
+    background-color: var(--tomato-6);
+    color: var(--tomato-12);
+    border-color: var(--tomato-7);
+}
+
+.primary:hover {
+    background-color: var(--blue-7);
+    border-color: var(--blue-8);
+}
+
+.danger:hover {
+    background-color: var(--tomato-7);
+    border-color: var(--tomato-8);
+}
+
+.small {
+    padding: 4px 8px;
+    font-size: var(--fs-2);
+    border-radius: 3px;
+}
+
+.medium {
+    padding: 5px 12px;
+    font-size: var(--fs-3);
+    border-radius: 4px;
+}
+
+.large {
+    padding: 6px 13px;
+    font-size: var(--fs-4);
+    border-radius: 5px;
+}
+
+.primary:disabled,
+.danger:disabled {
+    background-color: var(--gray-5);
+    border-color: var(--gray-8);
+    color: var(--gray-11)
+}

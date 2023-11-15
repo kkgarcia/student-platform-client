@@ -15,6 +15,10 @@ export const protectedRoutes = [
         path: '/',
         element: <div>Home</div>,
       },
+      {
+        path: '/modules',
+        element: <div>Modules</div>,
+      },
     ],
   },
 ]

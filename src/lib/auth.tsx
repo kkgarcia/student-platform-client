@@ -11,16 +11,21 @@ type AuthContextType = {
     groupUnit: number
     role: 'STUDENT' | 'ADMIN'
   } | null
-  logOut?: () => void
+  logOut: () => void
 }
 
-const AuthContext = createContext<AuthContextType>({})
+const logOut = () => {
+  storage.clearToken()
+  window.location.assign(window.location.origin)
+}
+
+const AuthContext = createContext<AuthContextType>({ logOut })
 
 export const AuthProvider = ({ children }: PropsWithChildren) => {
-  const { data: user } = useUser()
+  const { data: user, isLoading } = useUser()
 
-  const logOut = () => {
-    storage.clearToken()
+  if (isLoading) {
+    return
   }
 
   return (

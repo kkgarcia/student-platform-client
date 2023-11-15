@@ -38,8 +38,10 @@ async function RegisterFn(data: RegisterUserDTO) {
 export const useRegisterUser = () => {
   return useMutation({
     mutationFn: (data: RegisterUserDTO) => RegisterFn(data),
-    onSuccess: (data) => {
-      queryClient.setQueryData(['user'], () => data)
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ['user'],
+      })
     },
   })
 }

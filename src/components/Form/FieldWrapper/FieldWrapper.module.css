@@ -1,0 +1,17 @@
+.wrapper {
+    margin-bottom: 1rem;
+}
+
+.label {
+    color: var(--gray-12);
+    font-weight: var(--fw-m);
+}
+
+.error-message {
+    border: 1px solid var(--tomato-4);
+    color: var(--tomato-9);
+    font-size: var(--fs-2);
+    background-color: var(--tomato-2);
+    border-radius: 6px;
+    padding: 0px 3px;
+}

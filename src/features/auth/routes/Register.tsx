@@ -1,3 +1,9 @@
+import { Layout, RegisterForm } from '../components'
+
 export const Register = () => {
-  return <div>Register</div>
+  return (
+    <Layout title="Register a new Account">
+      <RegisterForm />
+    </Layout>
+  )
 }

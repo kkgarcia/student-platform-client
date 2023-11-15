@@ -1,6 +1,12 @@
 import { useController } from 'react-hook-form'
 
-import { FieldWrapper, type FieldWrapperPassThroughProps } from './FieldWrapper'
+import {
+  FieldWrapper,
+  type FieldWrapperPassThroughProps,
+} from '../FieldWrapper/FieldWrapper'
+
+import styles from './Input.module.css'
+import clsx from 'clsx'
 
 type InputProps = FieldWrapperPassThroughProps & {
   type?: string
@@ -25,7 +31,7 @@ export const Input = ({
     <FieldWrapper label={label} error={error}>
       <input
         type={type}
-        className={className}
+        className={clsx(styles['text-input'], className)}
         {...field}
         placeholder={placeholder}
       />

@@ -25,7 +25,7 @@ const getUser = async () => {
     },
   })
 
-  return userResponseSchema.parse(res.data)
+  return userResponseSchema.parse(res.data.user)
 }
 
 export const useUser = () => {

@@ -5,6 +5,8 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { AuthProvider } from '@/lib/auth'
 import { queryClient } from '@/lib/react-query'
 
+import { ENVIRONMENT } from '@/config'
+
 type AppProviderProps = {
   children: React.ReactNode
 }
@@ -12,7 +14,7 @@ type AppProviderProps = {
 export const AppProvider = ({ children }: AppProviderProps) => {
   return (
     <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools />
+      {ENVIRONMENT == 'dev' && <ReactQueryDevtools />}
       <AuthProvider>
         <Router>{children}</Router>
       </AuthProvider>

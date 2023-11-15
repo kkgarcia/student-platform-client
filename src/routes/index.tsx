@@ -4,7 +4,7 @@ import { protectedRoutes } from './protected'
 import { publicRoutes } from './public'
 
 export const AppRoutes = () => {
-  const element = useRoutes([...protectedRoutes, ...publicRoutes])
+  const element = useRoutes([...publicRoutes, ...protectedRoutes])
 
   return <>{element}</>
 }

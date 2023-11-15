@@ -3,7 +3,7 @@ import { QueryClient, type DefaultOptions } from '@tanstack/react-query'
 const queryGlobalConfig: DefaultOptions = {
   queries: {
     refetchOnWindowFocus: false,
-    refetchOnMount: true,
+    refetchOnMount: false,
     retry: false,
     enabled: true,
   },
