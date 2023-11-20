@@ -1,0 +1,18 @@
+.form_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.submit-btn {
+    margin-left: auto;
+}
+
+.link {
+    color: var(--blue-9);
+    text-decoration: underline;
+}
+
+.server-error {
+    color: var(--tomato-9)
+}
