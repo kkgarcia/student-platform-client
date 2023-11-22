@@ -1,0 +1,7 @@
+.edit-form-wrapper {
+    width: 300px;
+}
+
+.server-error {
+    color: var(--tomato-9)
+}

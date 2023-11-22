@@ -1,0 +1,46 @@
+.notes-wrapper {
+    border: 1px solid black;
+    padding: 1rem 0
+}
+
+.notes_head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.note_add-btn {
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    border: none;
+    background-color: var(--blue-6);
+}
+
+.note_add-btn:hover {
+    background: var(--blue-8);
+    cursor: pointer;
+}
+
+.notes-collection {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 1rem 0
+}
+
+.notes-collection::-webkit-scrollbar {
+    height: 6px;
+}
+
+.notes-collection::-webkit-scrollbar-track {
+    background: var(--gray-4);
+    border-radius: 5px;
+}
+
+.notes-collection::-webkit-scrollbar-thumb {
+    background: var(--gray-9);
+    border-radius: 5px;
+}
