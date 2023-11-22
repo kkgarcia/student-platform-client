@@ -4,6 +4,7 @@ import styles from './Button.module.css'
 const variants = {
   primary: styles['primary'],
   danger: styles['danger'],
+  accent: styles['accent'],
 }
 
 const sizes = {
@@ -12,14 +13,13 @@ const sizes = {
   lg: styles['large'],
 }
 
-type ButtonProps = {
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode
   type: 'button' | 'submit'
   isLoading?: boolean
   className?: string
   size?: keyof typeof sizes
   variant?: keyof typeof variants
-  onClick?: () => void
 }
 
 export const Button = ({
@@ -29,7 +29,7 @@ export const Button = ({
   size = 'md',
   variant = 'primary',
   className,
-  onClick,
+  ...props
 }: ButtonProps) => {
   return (
     <span>
@@ -37,7 +37,7 @@ export const Button = ({
         className={clsx(sizes[size], variants[variant], className)}
         type={type}
         disabled={isLoading}
-        onClick={onClick}
+        {...props}
       >
         {children}
       </button>

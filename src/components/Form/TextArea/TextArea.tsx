@@ -5,25 +5,25 @@ import {
   type FieldWrapperPassThroughProps,
 } from '../FieldWrapper'
 
-import styles from './Input.module.css'
 import clsx from 'clsx'
 
-type InputProps = FieldWrapperPassThroughProps & {
-  value?: string | number
-  type?: string
-  className?: string
+import styles from './TextArea.module.css'
+
+type TextAreaProps = FieldWrapperPassThroughProps & {
+  value?: string
+  label: string
   name: string
+  className?: string
   placeholder?: string
 }
 
-export const Input = ({
-  value,
-  label,
-  type = 'text',
-  className,
+export const TextArea = ({
+  value = '',
   name,
+  label,
+  className,
   placeholder,
-}: InputProps) => {
+}: TextAreaProps) => {
   const {
     field,
     fieldState: { error },
@@ -31,11 +31,10 @@ export const Input = ({
 
   return (
     <FieldWrapper label={label} error={error}>
-      <input
-        type={type}
-        className={clsx(styles['text-input'], className)}
+      <textarea
         {...field}
         placeholder={placeholder}
+        className={clsx(styles['textarea'], className)}
       />
     </FieldWrapper>
   )
