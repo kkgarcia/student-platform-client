@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-
 import { type SubmitHandler } from 'react-hook-form'
 
 import { useCreateNote } from '../../api/createNote'
@@ -19,22 +17,15 @@ const createNoteSchema = z.object({
 type CreateNoteValues = z.infer<typeof createNoteSchema>
 
 type CreateNoteProps = {
-  onSubmitSuccess: () => void
+  onSuccess: () => void
 }
 
-export const CreatNote = ({ onSubmitSuccess }: CreateNoteProps) => {
-  const createNoteMutation = useCreateNote()
+export const CreatNote = ({ onSuccess }: CreateNoteProps) => {
+  const createNoteMutation = useCreateNote({ onSuccess })
 
   const onSubmitHandle: SubmitHandler<CreateNoteValues> = (values) => {
-    console.log(values)
     createNoteMutation.mutate(values)
   }
-
-  useEffect(() => {
-    if (createNoteMutation.isSuccess) {
-      onSubmitSuccess()
-    }
-  })
 
   return (
     <div className={styles['create-form-wrapper']}>
@@ -48,7 +39,7 @@ export const CreatNote = ({ onSubmitSuccess }: CreateNoteProps) => {
           type="button"
           variant="accent"
           isLoading={createNoteMutation.isPending}
-          onClick={() => onSubmitSuccess()}
+          onClick={() => onSuccess()}
         >
           Cancel
         </Button>

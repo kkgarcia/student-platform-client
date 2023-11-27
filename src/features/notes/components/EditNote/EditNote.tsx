@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import axios from 'axios'
 import { type SubmitHandler } from 'react-hook-form'
 
@@ -18,7 +17,7 @@ type EditNoteFormProps = {
     text: string
     createdAt: string
   }
-  onSubmitSuccess: () => void
+  onSuccess: () => void
 }
 
 const editNoteSchema = z.object({
@@ -27,19 +26,12 @@ const editNoteSchema = z.object({
 
 type EditNoteValues = z.infer<typeof editNoteSchema>
 
-export const EditNoteForm = ({ note, onSubmitSuccess }: EditNoteFormProps) => {
-  const editMutation = useUpdateNote()
+export const EditNoteForm = ({ note, onSuccess }: EditNoteFormProps) => {
+  const editMutation = useUpdateNote({ onSuccess })
 
   const onSubmitHandle: SubmitHandler<EditNoteValues> = ({ text }) => {
-    console.log({ text, note })
     editMutation.mutate({ id: note.id, text })
   }
-
-  useEffect(() => {
-    if (editMutation.isSuccess) {
-      onSubmitSuccess()
-    }
-  })
 
   return (
     <div className={styles['edit-form-wrapper']}>
@@ -54,7 +46,7 @@ export const EditNoteForm = ({ note, onSubmitSuccess }: EditNoteFormProps) => {
           type="button"
           variant="accent"
           isLoading={editMutation.isPending}
-          onClick={() => onSubmitSuccess()}
+          onClick={() => onSuccess()}
         >
           Cancel
         </Button>

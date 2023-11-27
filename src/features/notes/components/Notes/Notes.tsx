@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { useNotes } from '../../api/getNotes'
+import { useNotes } from '@/features/notes/api/getNotes'
 
 import {
   Dialog,
@@ -18,7 +18,7 @@ export const Notes = () => {
 
   const { data } = useNotes()
 
-  const onSubmitSuccess = () => {
+  const onSuccess = () => {
     setDialogOpen(false)
   }
 
@@ -34,7 +34,7 @@ export const Notes = () => {
             </button>
           </DialogTrigger>
           <DialogContent>
-            <CreatNote onSubmitSuccess={onSubmitSuccess} />
+            <CreatNote onSuccess={onSuccess} />
           </DialogContent>
         </Dialog>
       </div>

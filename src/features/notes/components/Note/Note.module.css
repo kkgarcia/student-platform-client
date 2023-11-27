@@ -64,6 +64,7 @@
     font-size: var(--fs-4);
     overflow: auto;
     scroll-behavior: smooth;
+    white-space: pre-line;
 }
 
 .note_text::-webkit-scrollbar {

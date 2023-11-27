@@ -10,11 +10,16 @@ const deleteNote = async ({ id }: DeleteNoteDTO) => {
   return axios.delete(`/note/${id}/delete`)
 }
 
-export const useDeleteNote = () => {
+type UseDeleteNoteProps = {
+  onSuccess?: () => void
+}
+
+export const useDeleteNote = ({ onSuccess }: UseDeleteNoteProps) => {
   return useMutation({
     mutationFn: deleteNote,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['notes'] })
+      onSuccess && onSuccess()
     },
   })
 }

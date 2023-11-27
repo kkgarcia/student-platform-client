@@ -20,11 +20,16 @@ const createNote = async ({ text }: CreateNoteDTO) => {
   return createNoteResponseSchema.parse(response.data.data)
 }
 
-export const useCreateNote = () => {
+type UseCreateNoteProps = {
+  onSuccess?: () => void
+}
+
+export const useCreateNote = ({ onSuccess }: UseCreateNoteProps) => {
   return useMutation({
     mutationFn: createNote,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['notes'] })
+      onSuccess && onSuccess()
     },
   })
 }

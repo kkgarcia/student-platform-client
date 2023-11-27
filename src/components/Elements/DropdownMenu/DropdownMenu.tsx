@@ -4,8 +4,7 @@ import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 import styles from './DropdownMenu.module.css'
 
 export const DropdownMenuContent = React.forwardRef<
-  //   eslint-disable-next-line
-  any,
+  HTMLDivElement,
   React.PropsWithChildren
 >(({ children, ...props }, forwardedRef) => {
   return (

@@ -70,7 +70,7 @@ export const Note = ({ note }: NoteProps) => {
                   </DialogTrigger>
 
                   <DialogContent>
-                    <EditNoteForm note={note} onSubmitSuccess={onSuccess} />
+                    <EditNoteForm note={note} onSuccess={onSuccess} />
                   </DialogContent>
                 </Dialog>
               </DropdownMenuItem>
@@ -89,10 +89,7 @@ export const Note = ({ note }: NoteProps) => {
                   </DialogTrigger>
 
                   <DialogContent>
-                    <DeleteNote
-                      noteId={note.id}
-                      onDeletionSuccess={onSuccess}
-                    />
+                    <DeleteNote noteId={note.id} onSuccess={onSuccess} />
                   </DialogContent>
                 </Dialog>
               </DropdownMenuItem>

@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-
 import { useDeleteNote } from '../../api/deleteNote'
 
 import { Button } from '@/components/Elements/Button'
@@ -8,17 +6,11 @@ import styles from './DeleteNote.module.css'
 
 type DeleteNoteProps = {
   noteId: number
-  onDeletionSuccess: () => void
+  onSuccess: () => void
 }
 
-export const DeleteNote = ({ noteId, onDeletionSuccess }: DeleteNoteProps) => {
-  const deleteNoteMutation = useDeleteNote()
-
-  useEffect(() => {
-    if (deleteNoteMutation.isSuccess) {
-      onDeletionSuccess()
-    }
-  })
+export const DeleteNote = ({ noteId, onSuccess }: DeleteNoteProps) => {
+  const deleteNoteMutation = useDeleteNote({ onSuccess })
 
   return (
     <div className={styles['confirmation-dialog']}>
@@ -31,11 +23,7 @@ export const DeleteNote = ({ noteId, onDeletionSuccess }: DeleteNoteProps) => {
         Delete
       </Button>
 
-      <Button
-        variant="accent"
-        type="button"
-        onClick={() => onDeletionSuccess()}
-      >
+      <Button variant="accent" type="button" onClick={() => onSuccess()}>
         Cancel
       </Button>
     </div>

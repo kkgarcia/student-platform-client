@@ -23,11 +23,16 @@ const updateNote = async ({ id, text }: UpdateNoteDTO) => {
   return updateNoteResponseSchema.parse(response.data.data)
 }
 
-export const useUpdateNote = () => {
+type UseUpdateNoteProps = {
+  onSuccess?: () => void
+}
+
+export const useUpdateNote = ({ onSuccess }: UseUpdateNoteProps) => {
   return useMutation({
     mutationFn: updateNote,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['notes'] })
+      onSuccess && onSuccess()
     },
   })
 }
