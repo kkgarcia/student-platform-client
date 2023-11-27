@@ -1,11 +1,12 @@
 import axios from 'axios'
 import { type SubmitHandler } from 'react-hook-form'
 
-import { useLoginUser } from '../..'
+import { useLoginUser } from '@/features/auth/api/login'
 
-import { Form } from '@/components/Form'
-import { Input } from '@/components/Form'
-import { Button, Link } from '@/components/Elements'
+import { Form } from '@/components/Form/Form'
+import { Input } from '@/components/Form/Input'
+import { Button } from '@/components/Elements/Button'
+import { Link } from '@/components/Elements/Link'
 
 import { z } from 'zod'
 

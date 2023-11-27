@@ -1,6 +1,8 @@
 import { Outlet, Navigate } from 'react-router-dom'
 import { useAuth } from '@/lib/auth'
 
+import { Home } from '@/features/home/routes/Home'
+
 const ProtectedRoutes = () => {
   const { user } = useAuth()
 
@@ -13,7 +15,7 @@ export const protectedRoutes = [
     children: [
       {
         path: '/',
-        element: <div>Home</div>,
+        element: <Home />,
       },
       {
         path: '/modules',

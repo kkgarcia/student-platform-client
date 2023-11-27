@@ -19,11 +19,7 @@ const getUser = async () => {
   const token = storage.getToken() as string
   if (!token) return null
 
-  const res = await axios.get('/auth/user', {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  })
+  const res = await axios.get('/auth/user')
 
   return userResponseSchema.parse(res.data.user)
 }

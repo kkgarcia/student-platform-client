@@ -1,5 +1,5 @@
 import { createContext, useContext, type PropsWithChildren } from 'react'
-import { useUser } from '@/features/auth'
+import { useUser } from '@/features/auth/api/getUser'
 
 import storage from '@/utils/storage'
 

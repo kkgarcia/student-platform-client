@@ -1,6 +1,6 @@
 const storage = {
   getToken: () => {
-    return JSON.parse(window.localStorage.getItem('token') as string)
+    return JSON.parse(window.localStorage.getItem('token') as string) as string
   },
   setToken: (token: string) => {
     window.localStorage.setItem('token', JSON.stringify(token))
